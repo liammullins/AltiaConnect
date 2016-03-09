@@ -103,43 +103,31 @@ void AConnectionManager::processPendingDatagrams()
         datagram.resize(udpSocket->pendingDatagramSize());
         udpSocket->readDatagram(datagram.data(), datagram.size(),&senderIP,&senderPort);
         ui->teStatus->append(tr("%1").arg(datagram.data()));
-       // setTrafficStatus(false);
-       // ui->netTraffic->repaint();
-        //setTrafficStatus(true);
-       // ui->netTraffic->repaint();
-        if (senderIP.toString() != "192.168.1.1")
-        {
-            if (senderIP.toString() != getLocalHostIP())
-            {
+        /* this really should be based on the actual default gateway  */
+
                 QString msg = "{\"port\":53515,\"name\":\"Altia Connect\",\"id\":\"Altia_Connect\","
                                           "\"width\":"+QString::number(m_window->videoWidget->width())+","
                                           "\"height\":"+QString::number(m_window->videoWidget->width())+","
-                                           "\"mirror\":\"h264\",\"audio\":\"pcm\","
-                                           "\"subtitles\":\"text/vtt\",\"proxyHeaders\":false,\"hls\":true,\"upsell\":false}";
+                                           "\"mirror\":\"h264\","
+                                           "\"audio\":\"pcm\","
+                                           "\"subtitles\":\"text/vtt\","
+                                           "\"proxyHeaders\":false,"
+                                           "\"hls\":true,"
+                                           "\"upsell\":false }";
                 //audio : pcm;
                 if (senderPort==1900)
                 {
                     msg = "{\"port\":1900,\"name\":\"Altia Connect\",\"id\":\"Altia_Connect\",\"width\":1280,"
                                 "\"height\":960,\"mirror\":\"h264\",\"audio\":\"pcm\",\"subtitles\":\"text/vtt\","
                                 "\"proxyHeaders\":true,\"hls\":true,\"upsell\":false}";
-                         /*
-                        msg = "HTTP/1.1 200 OK\r\n"
-                              "CACHE-CONTROL: max-age=1800\r\n"
-                              "USN: uuid:77777777-ALTIA\r\n"
-                              "LOCATION: "+groupAddress.toString()+":41714/altia.xml\r\n"
-                              "ST: upnp:rootdevice\r\n"
-                              "SERVER: AltiaMediaServer\r\n\r\n{}";
-                              */
                 }
-                QByteArray datagram = msg.toStdString().c_str();
+
+                datagram = msg.toStdString().c_str();
                 udpSocket->writeDatagram(datagram.data(), datagram.size(),
                                          senderIP, senderPort);
                 ui->teStatus->verticalScrollBar()->setValue(ui->teStatus->verticalScrollBar()->maximum());
             }
-        }
-    }
-    //setTrafficStatus(false);
-    //ui->netTraffic->repaint();
+
 }
 void AConnectionManager::startUPNPServer()
 {

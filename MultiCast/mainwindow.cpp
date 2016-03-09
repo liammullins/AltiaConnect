@@ -84,7 +84,7 @@ void MainWindow::mediaPositionChanged(qint64 pos)
         return;
     }
     /* update track position */
-    ui->lblLength->setText(QString::number(pos)+" | "+QString::number(player->duration()));
+    ui->lblLength->setText(QString::number(pos)+" / "+QString::number(player->duration()));
     /* set the maximum */
     ui->hsPosition->setMaximum(player->duration());
     /* set the current track position on the horizontal  */
@@ -153,10 +153,6 @@ void MainWindow::playMedia(QString path)
         /* problematic method (getting album art and playing track this way) */
            //if (!tcpServer->albumArtLink.isEmpty())
                  //ui->pbPlay->click();
-        /* open up the media provided by service, parse, and get media metrics */
-        player->setMedia(QUrl(path));
-        player->setVolume(ui->hsVolume->value());
-        player->play();
         /* set scrub information */
         ui->hsPosition->setMaximum(player->duration());
         ui->lblLength->setText(QString::number(player->duration()));
@@ -169,7 +165,12 @@ void MainWindow::playMedia(QString path)
         /* set the play button to play */
         ui->pbPlayPause->setText("▮▮");
         ui->pbPlayPause->setChecked(true);
-
+        /* open up the media provided by service, parse, and get media metrics */
+        player->setMedia(QUrl(path));
+        player->setVolume(ui->hsVolume->value());
+        player->play();
+        /* kick things off with an advertisement */
+        tcpServer->sendAllCastAdvertisement();
         qDebug() << "\nplaying... "<< path <<"\n";
     }
     catch (...)
@@ -254,17 +255,17 @@ void MainWindow::on_pbPlayPause_toggled(bool checked)
     {
         ui->pbPlayPause->setText("▮▮");
         tcpServer->allCastAdv.p_paused = false;
+        player->play();
         /* make sure everyone knows */
         tcpServer->sendAllCastAdvertisement();
-        player->play();
     }
     else
     {
         ui->pbPlayPause->setText("►");
          tcpServer->allCastAdv.p_paused = true;
+        player->pause();
          /* make sure everyone knows */
          tcpServer->sendAllCastAdvertisement();
-        player->pause();
     }
 }
 
