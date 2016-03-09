@@ -1,0 +1,547 @@
+
+
+/*******************Basic Style for Time Tracker**********************
+*
+*
+*
+*                            	Developer: Liam
+*
+*
+*
+****************************************************************/
+#lblTitleVariables,#lblTitleStructs,#lblTitleEnums,#lblTitleFunctions
+{
+    color : white;
+    
+}
+#pbReloadSkin
+{
+    image: url(debug/style/images/reload.png); 
+    padding: 5px;
+}
+#pbSaveAppStyle
+{
+    image: url(debug/style/images/save.png); 
+    padding: 5px;
+}
+#pbMenDesign,#pbMenFunctions,#pbMenEnums,
+#pbMenStructs,#pbMenVariables,#pbMenSettings
+{
+    background-color:#0e0e0e;
+    border-bottom: 1px inset #1f1f1f;
+    border-radius:0px;
+    color:#616161;
+    font-size:10pt;   
+    font-family : "arial"; 
+    text-align:left;
+    padding:8px;
+    padding-left:16px;
+}
+#pbMenDesign:hover,#pbMenFunctions:hover,#pbMenEnums:hover,
+#pbMenStructs:hover,#pbMenVariables:hover,#pbMenSettings:hover
+{
+     background: #202020; /*qlineargradient(x1: 0.3, y1: 0, x2: 0, y2: 0,
+                                 stop: 0 #121212, stop: 0 #9c0606,
+                                 stop: 0 #121212, stop: 0.1 #9c0606);*/
+    border-left:2x solid #000;
+    border-bottom:1px solid #969696;
+    color : #ffffff;
+    padding-right:15px;
+    font-weight : bold;
+
+}
+#pbMenDesign:pressed,#pbMenFunctions:pressed,#pbMenEnums:pressed,
+#pbMenStructs:pressed,#pbMenVariables:pressed,#pbMenSettings:pressed
+{
+    background-color:#f70000;
+    color : #ffffff;
+}
+
+#pbMenDesign:checked,#pbMenFunctions:checked,#pbMenEnums:checked,
+#pbMenStructs:checked,#pbMenVariables:checked,#pbMenSettings:checked
+{
+    border : none;
+    background : qlineargradient(x1: 0.3, y1: 0, x2: 0, y2: 0,
+                                 stop: 0 #121212, stop: 0 #9c0606,
+                                 stop: 0 #121212, stop: 0 #9c0606);
+    border-bottom:1px inset #888888;
+    color : #ffffff;
+    text-align:right;
+    padding-right:11px;
+    
+}
+QToolTip{
+    color: #e4f3ff;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color:rgba(0, 0, 0, .40);
+    border:none;
+    border-radius:2px;
+    
+}
+#frMenu
+{
+    background-color:#0e0e0e;
+    border-bottom : 1px outset #555555;
+    border-right : 1px outset #000000;
+    
+}
+#lblFunkBlack
+{
+    background-color:rgba(0, 0, 0, .20);
+}
+#frFunctions
+{
+    background-color:rgba(0, 0, 0, .40);
+    border-radius: 18px;
+    border : 1px inset #202020;
+}
+#lblFunctions
+{
+    color : #e4f3ff;
+    font-size : 30px;
+    font-family : "Consolas";
+}
+#lblBracket
+{
+    border-image: url(debug/style/images/bracket.png) no-repeat ; 
+    background-color:none;
+    color : #ffffff;
+    padding-top : 46px;
+    font-size : 14px;
+    font-family : "Consolas";
+}
+#funkState
+{
+   border-image: url(debug/style/images/red_light.png) no-repeat ; 
+   background-color:none;
+}
+#pbFunkSource
+{
+    border-image: url(debug/style/images/source.png) no-repeat ; 
+    background-color:transparent;
+    color: black;
+    font-family : "Consolas";
+    font-size : 28px;
+    text-align: right;
+    padding-left:-18px;
+}
+
+#pbFunkDest
+{
+    border-image: url(debug/style/images/source_plus.png) no-repeat ; 
+    background-color:transparent;
+}
+#pbFunkSource:hover,#pbFunkDest:hover
+{
+    border : none;
+    
+}
+#pbFunkSource:pressed,#pbFunkDest:pressed
+{
+    border: 4px clear transparent;
+}
+#scrollArea
+{
+    background-color:#000;
+}
+
+#pbFunkSource,#pbInjectFunctions
+{
+    text-align : left;
+    padding-left:10px;
+}
+
+#teCodeEditor,#teInjectFunctions,#teAppStyle
+{
+    background-color:rgba(0, 0, 0, .70);
+    font-family : "Consolas";
+    padding: 15px;
+    border: 1px inset #272727;
+    color : white;
+}
+
+
+QMainWindow
+{
+    background-color:#000;
+    border:0px inset #000;
+    border-image: url(debug/style/images/min_bg.jpg) no-repeat ;
+    background-position: top center;
+    font-family : "Consolas";
+}
+
+/* Progress bar style */
+QProgressBar {
+     border: 1px inset #202020;
+     border-radius: 5px;
+ }
+
+ QProgressBar::chunk {
+     background-color: #e51937;
+     width: 20px;
+ }
+
+/* Label - default style */
+QLabel
+{
+    font-family:"Kuro";
+    font-size:28px;
+    color:#202020;
+}
+
+
+/* Checkbox */
+QCheckBox {
+    spacing: 5px;
+    font-family: "arial";
+    font-size : 22px;
+    padding-left : 5px;
+    text-align: left;
+    color : #e9e9e9;
+ }
+
+QCheckBox::indicator {
+     width: 130px;
+     height: 60px;
+     color : #e9e9e9;
+ }
+QCheckBox::indicator:hover
+ {
+    image: url(debug/style/images/cbLB_pressed.png);
+    color : #e9e9e9;     
+ }
+QCheckBox::indicator:unchecked {
+     image: url(debug/style/images/cbLB.png);
+     color:#ffffff;
+ }
+
+QCheckBox::indicator:checked {
+    image: url(debug/style/images/cbLB_checked.png);
+    color : #e9e9e9;
+ }
+ 
+QCheckBox::indicator:unchecked:pressed {
+     image: url(debug/style/images/cbLB_pressed.png);
+ }
+QCheckBox::indicator:disabled {
+     image: url(debug/style/images/cbLB_disabled.png);
+    color : #f1f1f1;
+ }
+  /*
+ 
+ 
+
+ QCheckBox::indicator:unchecked:pressed {
+     image: url(:/images/checkbox_unchecked_pressed.png);
+ }
+
+ QCheckBox::indicator:indeterminate:hover {
+     image: url(:/images/checkbox_indeterminate_hover.png);
+ }
+ QCheckBox::indicator:indeterminate:pressed {
+     image: url(:/images/checkbox_indeterminate_pressed.png);
+ }
+ */
+ 
+QPushButton
+{
+    background-color:#202020;
+    border-radius:3px;
+    color:#616161;
+    font-size:10pt;   
+    font-family : "arial"; 
+    padding:8px;
+    border:2x outset #fff;
+
+}
+QPushButton:hover
+{
+     background: #9c0606; /*qlineargradient(x1: 0.3, y1: 0, x2: 0, y2: 0,
+                                 stop: 0 #121212, stop: 0 #9c0606,
+                                 stop: 0 #121212, stop: 0.1 #9c0606);*/
+    color : #ffffff;
+
+}
+QPushButton:pressed
+{
+    background-color:#f70000;
+    color : #ffffff;
+}
+
+QPushButton:checked
+{
+    
+    background : qlineargradient(x1: 0.3, y1: 0, x2: 0, y2: 0,
+                                 stop: 0 #121212, stop: 0 #9c0606,
+                                 stop: 0 #121212, stop: 0 #9c0606);
+    border:1px outset #fff;
+    color : #ffffff;
+    padding-right:11px;
+    
+}
+ QTabWidget::pane 
+{ /* The tab widget frame */
+     border:1px solid #eaeaea;
+ 
+ }
+
+ QTabWidget::tab-bar {
+     
+     left: 0px; /* move to the right by 5px */
+ }
+
+
+
+ QListWidget {
+    border: none;
+    color: #202020; /*This is the main dark color for this style*/
+    font-size:24px;
+    font-family: "Kuro";
+    outline : none;
+    text-align : right;
+ }
+ 
+QListWidget::item 
+ {
+    padding-left: 8px;
+    padding: 10px;
+    margin-top:10px;
+ }
+ 
+ /*
+QListWidget::item:selected 
+{
+     border: 1px dotted #ffffff;
+     background: white;
+     border-bottom: 1px solid #202020;
+     padding-bottom:5px;
+     padding-top: 5px;
+     padding-left: 8px;
+}
+
+ QListWidget::item:selected:!active {
+     background: #ffffff;
+     color:#e51937;
+     border-left: 1px solid #ff9baa;
+     padding-left: 8px;
+     border-bottom: 1px solid #ff9baa;   
+ }
+
+ QListWidget::item:selected:active {
+     background: #ffffff;
+     color:#e51937;
+     border-left: 1px solid #ff9baa;
+     padding-left: 8px;
+     border-bottom: 1px solid #ff9baa;  
+ }
+
+ QListWidget::item:hover {
+     background: white;
+     border-bottom: 1px solid #a3e0ff;    
+ }
+ */
+ /* QSlider style */
+ 
+ QSlider::groove:horizontal {
+     border: 0px solid #999999;
+     height: 22px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
+     background: qlineargradient(x1:0, y1:0, x4:0, y2:1, stop:0 #f1f1f1, stop:1 #fafafafa);
+     margin: 0px 0;
+     border-radius: 4px
+}
+
+QSlider::handle:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:0, stop:0 #3fbeff, stop:1 #3fbeff);
+    border: 1px outset #09a1ee;
+    width: 42px;
+    margin: 0px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+    border-radius: 9px;
+}
+ 
+ QSlider::groove:vertical {
+    background: red;
+    position: absolute; /* absolutely position 4px from the left and right of the widget. setting margins on the widget should work too... */
+    left: 4px; right: 4px;
+}
+
+QSlider::handle:vertical {
+    height: 10px;
+    background: green;
+    margin: 0 -4px; /* expand outside the groove */
+}
+
+QSlider::add-page:vertical {
+    background: black;
+}
+
+QSlider::sub-page:vertical {
+    margin-top:50px;
+    background: yellow;
+}
+ 
+ 
+
+
+ /*  QTab */
+  QTabWidget::pane { /* The tab widget frame */
+      border-top : 1px solid #4e4e4e;
+      border-left : none;
+      border-bottom : 1px outset #555555;
+      border-right : none;
+      background-color:rgba(0, 0, 0, .70);
+
+ }
+
+ QTabWidget::tab-bar {
+     left: 1px; /* move to the right by 5px */
+     background-color:black;
+ }
+
+ QTabBar::tab {
+     /*
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #121212, stop: 0.4 #121212,
+                                 stop: 0.5 #000, stop: 1.0 #000);
+     border: 0px solid #cfcfcf;
+     */
+     background-color:rgba(0, 0, 0, .30);  
+     border-bottom-color: #C2C7CB; /* same as the pane color */
+     border-top-left-radius: 0px;
+     border-top-right-radius: 0px;
+     min-width: 135px;
+     min-height:25px;
+     padding:12px;
+     font-family: "arial";
+     font-size: 16px;
+     color:#6b6b6b;
+ }
+
+ QTabBar::tab:selected
+ {
+     /*
+      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #515151, stop: 0.4 #515151,
+                                 stop: 0.5 #4e4e4e, stop: 1.0 #4e4e4e);  
+   */
+   
+   background-color:rgba(0, 0, 0, .70);  
+ }
+ 
+ QTabBar::tab:hover {
+     /*
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #272727, stop: 0.4 #272727,
+                                 stop: 0.5 #272727, stop: 1.0 #272727);
+     */
+     background-color:rgba(0, 0, 0, .50);  
+     border-bottom:1px inset #9c0e0e;
+     color: #dddddd;
+ }
+
+ QTabBar::tab:selected {
+    
+     border-bottom: 0px inset #565656; /* same as pane color */
+ }
+
+
+ /* make use of negative margins for overlapping tabs */
+ QTabBar::tab:selected {
+     /* expand/overlap to the left and right by 4px */
+    color: #e51937;
+ }
+
+ QTabBar::tab:first:selected {
+     margin-left: 0; /* the first selected tab has nothing to overlap with on the left */
+ }
+
+QTabBar::tab:last:selected 
+ {
+     margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+ }
+
+QTabBar::tab:only-one 
+ {
+     margin: 0; /* if there is only one tab, we don't want overlapping margins */
+ }
+ 
+ 
+QScrollBar:vertical
+ {
+      border: 1px inset #393939;
+      background: #151515;
+      width: 17px;
+      margin: 22px 0 22px 0;
+  }
+
+
+ 
+QScrollBar::handle:vertical
+  {
+     background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+                                 stop: 0 #4a4a4a, stop: 0.4 #616161,
+                                 stop: 0.5 #616161, stop: 1.0 #4a4a4a);
+      border-radius:6px;
+      min-height: 20px;
+  }
+QScrollBar::handle:vertical:pressed
+  {
+      border: 1px solid #ccff00;
+      background: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+                                 stop: 0 #ccff00, stop: 0.4 #acce22,
+                                 stop: 0.5 #acce22, stop: 1.0 #ccff00);
+  }
+QScrollBar::add-line:vertical
+  {
+      
+	height: 20px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;	
+	border: none;
+      	background:#5c5c5c;
+  }
+
+QScrollBar::sub-line:vertical
+  {
+	height: 20px;
+	border: none;
+	background:#5c5c5c;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+  }
+  
+QScrollBar::add-line:vertical:pressed 
+{
+      	background: #ccff00;
+	border: 1px solid black;
+}
+
+QScrollBar::sub-line:vertical:pressed 
+{
+	background: #ccff00;
+	border: 1px solid black;
+}
+
+  QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical 
+{
+
+  }
+
+  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical 
+  {
+      background: none;
+  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

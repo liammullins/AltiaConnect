@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0">
+   <specVersion>
+      <major>1</major>
+      <minor>0</minor>
+   </specVersion>
+   <device>
+      <deviceType>urn:altia-com:device:player:1</deviceType>
+      <friendlyName>Altia Connect</friendlyName>
+      <manufacturer>Altia</manufacturer>
+      <manufacturerURL>http://www.altia.com/</manufacturerURL>
+      <modelDescription>Altia Media Point</modelDescription>
+      <modelName>Altia Media Point</modelName>
+      <modelNumber>1000</modelNumber>
+      <modelURL>http://www.altia.com</modelURL>
+      <serialNumber>A1C</serialNumber>
+      <UDN>uuid:77777777-ALTIA</UDN>
+      <iconList>
+         <icon>
+             <mimetype>image/png</mimetype>
+             <width>66</width>
+             <height>66</height>
+             <depth>32</depth>
+             <url>altiaicon.png</url>
+         </icon>
+     </iconList> 
+      <serviceList>
+        <service>
+             <serviceType>urn:altia-com:service:RenderingControl:1</serviceType>
+             <serviceId>urn:altia-com:serviceId:RenderingControl</serviceId>
+             <SCPDURL>AVTransport.xml</SCPDURL>
+             <controlURL></controlURL>
+             <eventSubURL></eventSubURL>
+        </service>
+        <service>
+            <serviceType>urn:altia-com:service:ecp:1</serviceType>
+            <serviceId>urn:altia-com:serviceId:ecp</serviceId>
+             <controlURL></controlURL>
+             <eventSubURL></eventSubURL>
+            <SCPDURL>AVTransport.xml</SCPDURL>
+         </service>
+         <service>
+            <serviceType>urn:altia-com:service:dial:1</serviceType>
+            <serviceId>urn:altia-com:serviceId:dial</serviceId>
+             <controlURL></controlURL>
+             <eventSubURL></eventSubURL>
+            <SCPDURL>AVTransport.xml</SCPDURL>
+         </service>
+      </serviceList>
+   </device>
+</root>
