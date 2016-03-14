@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="MediaRenderer">
+      <UniqueIdentifier>{eb437a24-56bc-4b64-895d-413935372da1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WebServer">
+      <UniqueIdentifier>{c3fc495b-773b-4f2e-9512-0dcaafef7057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConnectionManager">
+      <UniqueIdentifier>{2ef15596-b2ac-4db3-a58f-8f826614cce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MulticastServer">
+      <UniqueIdentifier>{abde5c6e-b154-45a1-a33c-ad4b1b664a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Main Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Main Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AConnectionManager.cpp">
+      <Filter>ConnectionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AMulticastServer.cpp">
+      <Filter>MulticastServer</Filter>
+    </ClCompile>
+    <ClCompile Include="AWebServer.cpp">
+      <Filter>WebServer</Filter>
+    </ClCompile>
+    <ClCompile Include="AMediaRenderer.cpp">
+      <Filter>MediaRenderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="global_include.h">
+      <Filter>Main Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AConnectionManager.h">
+      <Filter>ConnectionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AMulticastServer.h">
+      <Filter>MulticastServer</Filter>
+    </ClInclude>
+    <ClInclude Include="AWebServer.h">
+      <Filter>WebServer</Filter>
+    </ClInclude>
+    <ClInclude Include="AMediaRenderer.h">
+      <Filter>MediaRenderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Neptune\ThirdParty\zlib-1.2.8\README" />
+    <None Include="Platinum\Source\Devices\MediaRenderer\process_scpds.sh" />
+    <None Include="Platinum\Source\Devices\MediaConnect\process_scpds.sh" />
+    <None Include="Platinum\Source\Devices\MediaServer\process_scpds.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\AVTransportSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\AVTransportSCPDFull.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\RdrConnectionManagerSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\RenderingControlSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\RenderingControlSCPD_Full.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaConnect\X_MS_MediaReceiverRegistrarSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaServer\ConnectionManagerSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaServer\ContentDirectorySCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaServer\ContentDirectorywSearchSCPD.xml" />
+  </ItemGroup>
+</Project>

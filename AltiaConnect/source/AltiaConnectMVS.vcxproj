@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A9AEE4E4-0565-4110-B3D6-04F82C258869}</ProjectGuid>
+    <RootNamespace>AltiaConnectMVS</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AltiaConnectMVS\Neptune\Source\Core;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AltiaConnectMVS\Platinum\Source\Core;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AltiaConnectMVS\Platinum\Source\Platinum;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AltiaConnectMVS\Platinum\Source\Devices\MediaRenderer;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI\altia\common;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI\altia\altiaGL\windib;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI\altia\altiaGL\mi;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI\altia\altiaGL\fb;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI\altia;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI\altia\altiaGL\libfloat;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI\altia\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AltiaConnectMVS\Neptune\lib;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AltiaConnectMVS\Platinum\lib;C:\Users\liamm\Development\AltiaConnectMVS\AltiaConnectMVS\AutoLiteHMI;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>altiaAPIlibfloat.lib;altiaWinLib.lib;Wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AConnectionManager.cpp" />
+    <ClCompile Include="AMediaRenderer.cpp" />
+    <ClCompile Include="AMulticastServer.cpp" />
+    <ClCompile Include="AWebServer.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AConnectionManager.h" />
+    <ClInclude Include="AMediaRenderer.h" />
+    <ClInclude Include="AMulticastServer.h" />
+    <ClInclude Include="AWebServer.h" />
+    <ClInclude Include="global_include.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Neptune\ThirdParty\zlib-1.2.8\README" />
+    <None Include="Platinum\Source\Devices\MediaConnect\process_scpds.sh" />
+    <None Include="Platinum\Source\Devices\MediaRenderer\process_scpds.sh" />
+    <None Include="Platinum\Source\Devices\MediaServer\process_scpds.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Platinum\Source\Devices\MediaConnect\X_MS_MediaReceiverRegistrarSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\AVTransportSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\AVTransportSCPDFull.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\RdrConnectionManagerSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\RenderingControlSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaRenderer\RenderingControlSCPD_Full.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaServer\ConnectionManagerSCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaServer\ContentDirectorySCPD.xml" />
+    <Xml Include="Platinum\Source\Devices\MediaServer\ContentDirectorywSearchSCPD.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

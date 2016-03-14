@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FA1514C2-F64D-4842-869D-0B9676CEBE15}</ProjectGuid>
+    <RootNamespace>AltiaConnect</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\AltiaConnect\AltiaConnect\source;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\Platinum\Source\Platinum;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\Platinum\Source\Devices\MediaServer;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\Platinum\Source\Devices\MediaRenderer;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\Platinum\Source\Devices\MediaConnect;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\Platinum\Source\Extras;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\Platinum\Source\Core;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\Neptune\Source\Core;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\AltiaLibrary\altia\windows;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\AltiaLibrary\altia\altiaGL\windib;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\AltiaLibrary\altia\altiaGL\mi;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\AltiaLibrary\altia\altiaGL\libfloat;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\AltiaLibrary\altia\altiaGL\fb;C:\Users\liamm\Desktop\ALTIA_CONNECT_POINT\AltiaLibrary\altia;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Platinum.lib;Neptune.lib;altiaAPIlibfloat.lib;altiaWinLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\liamm\Development\AltiaConnect\AltiaLibrary;C:\Users\liamm\Development\AltiaConnect\Platinum\lib;C:\Users\liamm\Development\AltiaConnect\Neptune\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\AConnectionManager.cpp" />
+    <ClCompile Include="source\AMediaRenderer.cpp" />
+    <ClCompile Include="source\AMulticastServer.cpp" />
+    <ClCompile Include="source\AWebServer.cpp" />
+    <ClCompile Include="source\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\AConnectionManager.h" />
+    <ClInclude Include="source\AMediaRenderer.h" />
+    <ClInclude Include="source\AMulticastServer.h" />
+    <ClInclude Include="source\AWebServer.h" />
+    <ClInclude Include="source\debug_helper.h" />
+    <ClInclude Include="source\global_include.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\AltiaConnectMVS.vcxproj" />
+    <None Include="source\AltiaConnectMVS.vcxproj.filters" />
+    <None Include="source\AltiaConnectMVS.vcxproj.user" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
