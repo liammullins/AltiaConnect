@@ -6,5 +6,3 @@
 #include <string>
 #include "debug_helper.h"
 
-
-#define APP_DEBUG printf;

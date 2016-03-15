@@ -65,9 +65,9 @@ PLT_MediaRenderer::PLT_MediaRenderer(const char*  friendly_name,
                    port_rebind),
     m_Delegate(NULL)
 {
-    m_ModelDescription = "Plutinosoft AV Media Renderer Device";
+    m_ModelDescription = "Altia Media Renderer V1";
     m_ModelName        = "AV Renderer Device";
-    m_ModelURL         = "http://www.plutinosoft.com/platinum";
+    m_ModelURL         = "http://www.altia.com";
     m_DlnaDoc          = "DMR-1.50";
 }
 
@@ -85,7 +85,7 @@ NPT_Result
 PLT_MediaRenderer::SetupServices()
 {
     NPT_Reference<PLT_Service> service;
-
+	
     {
         /* AVTransport */
         service = new PLT_Service(

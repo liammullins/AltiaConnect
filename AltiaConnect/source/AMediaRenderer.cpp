@@ -1,31 +1,29 @@
 #include "AMediaRenderer.h"
-#include "PltUPnP.h"
-#include "PltMediaRenderer.h"
+
 
 /*----------------------------------------------------------------------
 |   globals
 +---------------------------------------------------------------------*/
-struct Options {
-	const char* friendly_name;
-} Options;
+
+/*
+NPT_Result AMediaRenderer::OnAction(PLT_ActionReference& action, const PLT_HttpRequestContext& context)
+{
+	ALTIA_LOG_INFO("WOOOOOOT");
+	return 1;
+}
 
 AMediaRenderer::AMediaRenderer()
 {
 
-	PLT_UPnP upnp;
-	PLT_DeviceHostReference device(
-		new PLT_MediaRenderer(Options.friendly_name ? Options.friendly_name : "Altia Connect Point",
-		false,
-		"e6572b54-f3c7-2d91-2fb5-b757f2537e21"));
-	upnp.AddDevice(device);
-	bool added = true;
-
-	upnp.Start();
+}
+*/  
+void AMediaRenderer::initMediaRenderer()
+{
 
 }
 
-
 AMediaRenderer::~AMediaRenderer()
 {
+
 }
 
