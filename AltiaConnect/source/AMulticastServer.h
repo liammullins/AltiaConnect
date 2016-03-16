@@ -10,8 +10,7 @@ class AMulticastServer
 public: 
 	AMulticastServer();
 	virtual ~AMulticastServer();
-
-	virtual NPT_Result OnAction(PLT_ActionReference& action, const PLT_HttpRequestContext& context);
+	PLT_DeviceHostReference altiaMediaRendererDevice;
 	/* init Media Renderer public funk */
 	void initMCServer(std::string serverName, std::string guid);
 	/* think we need access to this */

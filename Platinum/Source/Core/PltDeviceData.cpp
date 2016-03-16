@@ -50,7 +50,7 @@ PLT_DeviceData::PLT_DeviceData(NPT_HttpUrl      description_url,
                                NPT_TimeInterval lease_time,
                                const char*      device_type,
                                const char*      friendly_name) :
-    m_Manufacturer("Plutinosoft LLC"),
+    m_Manufacturer("Altia, Inc"),
     m_ManufacturerURL("http://www.plutinosoft.com"),
     m_UUID(uuid),
     m_URLDescription(description_url),

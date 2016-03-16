@@ -1,11 +1,9 @@
 #include "global_include.h"
-#include "AMulticastServer.h"
+
 
 AtConnectId connID;
-AMulticastServer *multiCastServer;
+AMediaRenderer *mediaRenderer;
 
-#define SERVER_NAME "Altia Connect"
-#define SERVER_GUID "41714"
 
 void hmiProcess(void)
 {
@@ -28,10 +26,9 @@ void on_PhoneClicked(AtConnectId connectId, char *name,
 	if (eventValue == 1)
 	{
 		/* instantiate new server instance - need to gaurd this operation */
-		multiCastServer = new AMulticastServer();
-		multiCastServer->initMCServer(SERVER_NAME, SERVER_GUID);
-		ALTIA_LOG_INFO("\r\n\r\nStarted Server:\r\n          Server Name: %s \r\n          "
-					   "GUID: %s","Altia Connect","41714");
+		mediaRenderer = new AMediaRenderer();
+		mediaRenderer->initMediaRenderer();
+		//altiaExCreateRaster (400,400, int  bitsPerPixel, int  bytesPerScan, unsigned long  *ctable, int  ctablesize, unsigned long rmask, unsigned long  gmask, unsigned long  bmask, unsigned char  *data, unsigned char  *transMask)
 	}
 	else
 	{
@@ -71,7 +68,6 @@ void main(void)
 		Sleep(2000);
 	}
 
-	delete multiCastServer;
 	/* Close connection to GUI.  For DeepScreen this frees resources */
 	altiaDisconnect();
 	exit(0);

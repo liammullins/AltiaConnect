@@ -65,7 +65,7 @@ PLT_MediaRenderer::PLT_MediaRenderer(const char*  friendly_name,
                    port_rebind),
     m_Delegate(NULL)
 {
-    m_ModelDescription = "Altia Media Renderer V1";
+    m_ModelDescription = "Altia Media Renderer V2";
     m_ModelName        = "AV Renderer Device";
     m_ModelURL         = "http://www.altia.com";
     m_DlnaDoc          = "DMR-1.50";
@@ -411,7 +411,7 @@ PLT_MediaRenderer::OnSetAVTransportURI(PLT_ActionReference& action)
     // default implementation is using state variable
     NPT_String uri;
     NPT_CHECK_WARNING(action->GetArgumentValue("CurrentURI", uri));
-
+	printf("Returned URI: %s\n\n", uri);
     NPT_String metadata;
     NPT_CHECK_WARNING(action->GetArgumentValue("CurrentURIMetaData", metadata));
     

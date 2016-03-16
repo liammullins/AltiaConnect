@@ -5,17 +5,23 @@
 #include "PltUPnP.h"
 #include "PltMediaRenderer.h"
 
-class AMediaRenderer : public PLT_MediaRenderer
+
+
+class AMediaRenderer 
 {
-	
+
 public:
 	AMediaRenderer();
 	//virtual NPT_Result OnAction(PLT_ActionReference& action, const PLT_HttpRequestContext& context);
-	
+	//virtual NPT_Result OnAction(PLT_ActionReference& action, const PLT_HttpRequestContext& context);
 	virtual ~AMediaRenderer();
 	/* init Media Renderer public funk */
-	void AMediaRenderer::initMediaRenderer();
+	void initMediaRenderer();
 	/* think we need access to this */
-	PLT_UPnP upnp;
+	//PLT_UPnP upnp;
+
+private:
+	
+
 };
 #endif
