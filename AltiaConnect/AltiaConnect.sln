@@ -8,12 +8,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AltiaConnect", "AltiaConnec
 		{568611D3-AFA7-4294-99C1-E9AED0D8057E} = {568611D3-AFA7-4294-99C1-E9AED0D8057E}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Platinum", "..\Platinum\Build\Targets\x86-microsoft-win32-vs2010\Platinum\Platinum.vcxproj", "{568611D3-AFA7-4294-99C1-E9AED0D8057E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Platinum", "..\Platinum\Platinum.vcxproj", "{568611D3-AFA7-4294-99C1-E9AED0D8057E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{12AFF2E5-6D95-4809-9728-9551677C078A} = {12AFF2E5-6D95-4809-9728-9551677C078A}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Neptune", "..\Neptune\Build\Targets\x86-microsoft-win32-vs2010\Neptune\Neptune.vcxproj", "{12AFF2E5-6D95-4809-9728-9551677C078A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Neptune", "..\Neptune\Neptune.vcxproj", "{12AFF2E5-6D95-4809-9728-9551677C078A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2943,7 +2943,6 @@ NPT_HttpFileRequestHandler::SetupResponse(NPT_HttpRequest&              request,
 
     // set some default headers
     response.GetHeaders().SetHeader(NPT_HTTP_HEADER_ACCEPT_RANGES, "bytes");
-
     // declare HTTP/1.1 if the client asked for it
     if (request.GetProtocol() == NPT_HTTP_PROTOCOL_1_1) {
         response.SetProtocol(NPT_HTTP_PROTOCOL_1_1);
@@ -2966,7 +2965,7 @@ NPT_HttpFileRequestHandler::SetupResponse(NPT_HttpRequest&              request,
     // get info about the file
     NPT_FileInfo info;
     NPT_File::GetInfo(filename, &info);
-
+	
     // check if this is a directory 
     if (info.m_Type == NPT_FileInfo::FILE_TYPE_DIRECTORY) {
         NPT_LOG_FINE("file is a DIRECTORY");

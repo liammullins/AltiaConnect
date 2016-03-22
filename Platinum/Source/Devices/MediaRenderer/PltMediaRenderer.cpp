@@ -51,7 +51,7 @@ extern NPT_UInt8 RDR_RenderingControlSCPD[];
 /*----------------------------------------------------------------------
 |   PLT_MediaRenderer::PLT_MediaRenderer
 +---------------------------------------------------------------------*/
-PLT_MediaRenderer::PLT_MediaRenderer(const char*  friendly_name, 
+PLT_MediaRenderer::PLT_MediaRenderer(const char*  friendly_name,
                                      bool         show_ip     /* = false */, 
                                      const char*  uuid        /* = NULL */, 
                                      unsigned int port        /* = 0 */,
@@ -62,12 +62,11 @@ PLT_MediaRenderer::PLT_MediaRenderer(const char*  friendly_name,
                    friendly_name, 
                    show_ip, 
                    port, 
-                   port_rebind),
-    m_Delegate(NULL)
+                   port_rebind)
 {
-    m_ModelDescription = "Altia Media Renderer V2";
+    m_ModelDescription = "Plutinosoft AV Media Renderer Device";
     m_ModelName        = "AV Renderer Device";
-    m_ModelURL         = "http://www.altia.com";
+    m_ModelURL         = "http://www.plutinosoft.com/platinum";
     m_DlnaDoc          = "DMR-1.50";
 }
 
@@ -85,7 +84,7 @@ NPT_Result
 PLT_MediaRenderer::SetupServices()
 {
     NPT_Reference<PLT_Service> service;
-	
+
     {
         /* AVTransport */
         service = new PLT_Service(
@@ -110,7 +109,7 @@ PLT_MediaRenderer::SetupServices()
 
         // GetMediaInfo
         service->SetStateVariable("NumberOfTracks", "0");
-        service->SetStateVariable("CurrentMediaDuration", "00:00:00");
+        service->SetStateVariable("CurrentMediaDuration", "01:00:00");
         service->SetStateVariable("AVTransportURI", "");
         service->SetStateVariable("AVTransportURIMetadata", "");;
         service->SetStateVariable("NextAVTransportURI", "NOT_IMPLEMENTED");
@@ -411,7 +410,7 @@ PLT_MediaRenderer::OnSetAVTransportURI(PLT_ActionReference& action)
     // default implementation is using state variable
     NPT_String uri;
     NPT_CHECK_WARNING(action->GetArgumentValue("CurrentURI", uri));
-	printf("Returned URI: %s\n\n", uri);
+
     NPT_String metadata;
     NPT_CHECK_WARNING(action->GetArgumentValue("CurrentURIMetaData", metadata));
     

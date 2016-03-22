@@ -1,9 +1,10 @@
 #include "global_include.h"
-
+#include "AMulticastServer.h"
+#include <stdio.h>
+#include <memory>
 
 AtConnectId connID;
-AMediaRenderer *mediaRenderer;
-
+AMulticastServer *multiCastServer;
 
 void hmiProcess(void)
 {
@@ -23,19 +24,20 @@ void hmiProcess(void)
 void on_PhoneClicked(AtConnectId connectId, char *name,
 	                 AltiaEventType eventValue, AtPointer data)
 {
+	/* on cleek */
 	if (eventValue == 1)
 	{
-		/* instantiate new server instance - need to gaurd this operation */
-		mediaRenderer = new AMediaRenderer();
-		mediaRenderer->initMediaRenderer();
-		//altiaExCreateRaster (400,400, int  bitsPerPixel, int  bytesPerScan, unsigned long  *ctable, int  ctablesize, unsigned long rmask, unsigned long  gmask, unsigned long  bmask, unsigned char  *data, unsigned char  *transMask)
+		/* kick off the server */
+		//mediaRenderer->initMediaRenderer();
+		multiCastServer = new AMulticastServer();
+		multiCastServer->initMCServer(SERVER_NAME, SERVER_GUID);
+		ALTIA_LOG_INFO("\n=====================================================\n"
+					   "Started Server:\n          "
+					   "Server Name: %s \n          "
+					   "GUID: %s", SERVER_NAME, SERVER_GUID);
+		ALTIA_LOG_INFO(DEBUG_CONSOLE_VISIBLE_LINE);
 	}
-	else
-	{
-		/* Delete our instance. The destructor takes care of the connection */
-		//delete multiCastServer;
-		//ALTIA_LOG_INFO("Closed Server:\r\n          Server Name: %s \r\n          GUID: %s", "Altia Connect", "41714");
-	}
+
 }
 
 
@@ -44,7 +46,6 @@ void initMainLogic(void)
 	/* phone button - start server */
 	AtAddCallback(connID, "ms_phone_icon_clicked", (AtCallbackProc)on_PhoneClicked, NULL);
 }
-
 
 
 void main(void)
