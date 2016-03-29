@@ -25,7 +25,7 @@ Altia*inputEditorFont:                  *-Arial Unicode MS-medium-r-normal--22-*
 ! GUI Settings
 !
 Altia*switchMode: Off
-Altia*showFocusOnly: False
+Altia*showFocusOnly: True
 Altia*selectionOptional: False
 Altia*grid_1: 1      1            pixel      pixels
 Altia*gridSnap: On

@@ -5,6 +5,9 @@
 
 AtConnectId connID;
 AMulticastServer *multiCastServer;
+extern bool processing;
+
+using namespace cv;
 
 void hmiProcess(void)
 {

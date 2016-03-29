@@ -1,2 +1,0 @@
-C:\Users\liamm\Desktop\PlatinumKit-1-0-5-13_0ab854\Platinum\Build\Targets\x86-microsoft-win32-vs2010\Debug\Platinum.Managed.MediaServerTest.exe.config
-C:\Users\liamm\Desktop\PlatinumKit-1-0-5-13_0ab854\Platinum\Build\Targets\x86-microsoft-win32-vs2010\Platinum.Managed.MediaServerTest\obj\Debug\Platinum.Managed.MediaServerTest.csprojResolveAssemblyReference.cache

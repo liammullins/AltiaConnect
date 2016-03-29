@@ -44,12 +44,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\liamm\Development\AltiaConnect\OpenCV\build\include;source;C:\Users\liamm\Development\AltiaConnect\Platinum\Source\Platinum;C:\Users\liamm\Development\AltiaConnect\Platinum\Source\Devices\MediaServer;..\Platinum\Source\Devices\MediaRenderer;..\Platinum\Source\Devices\MediaConnect;..\Platinum\Source\Extras;..\Platinum\Source\Core;..\Neptune\Source\Core;..\AltiaLibrary\altia\windows;..\AltiaLibrary\altia\altiaGL\windib;..\AltiaLibrary\altia\altiaGL\mi;..\AltiaLibrary\altia\altiaGL\libfloat;..\AltiaLibrary\altia\altiaGL\fb;..\AltiaLibrary\altia;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\liamm\Development\AltiaConnect\OpenCV\build\include;source;..\Platinum\Source\Platinum;..\Platinum\Source\Devices\MediaServer;..\Platinum\Source\Devices\MediaRenderer;..\Platinum\Source\Devices\MediaConnect;..\Platinum\Source\Extras;..\Platinum\Source\Core;..\Neptune\Source\Core;..\AltiaLibrary\altia\windows;..\AltiaLibrary\altia\altiaGL\windib;..\AltiaLibrary\altia\altiaGL\mi;..\AltiaLibrary\altia\altiaGL\libfloat;..\AltiaLibrary\altia\altiaGL\fb;..\AltiaLibrary\altia;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Platinum.lib;Neptune.lib;altiaAPIlibfloat.lib;altiaWinLib.lib;opencv_world310.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\OpenCV\build\x64\vc14\lib;..\AltiaLibrary;..\Platinum\lib;..\Neptune\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Platinum.lib;Neptune.lib;altiaAPIlibfloat.lib;altiaWinLib.lib;opencv_world300.lib;opencv_ts300d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\liamm\Development\AltiaConnect\OpenCV\build\x86\vc12\bin;C:\Users\liamm\Development\AltiaConnect\OpenCV\build\x86\vc12\lib;..\AltiaLibrary;..\Platinum\lib;..\Neptune\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
