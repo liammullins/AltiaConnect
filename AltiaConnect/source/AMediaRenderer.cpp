@@ -1,16 +1,16 @@
-
 #include "AMediaRenderer.h"
-
 #include <process.h>
 #include <iostream>
 #include <stdio.h>
+#include <mutex>
 
 bool processing;
 std::string _videoURI;
 NPT_UInt8 RDR_ConnectionManagerSCPD[];
 NPT_UInt8 RDR_AVTransportSCPD[];
 NPT_UInt8 RDR_RenderingControlSCPD[];
-
+//extern PushFrameToDll pushFrameToAltia;
+extern void PushFrame(char* frame);
 /* use the openCV namespace here */
 using namespace cv;
 
@@ -27,8 +27,8 @@ AMediaRenderer::AMediaRenderer(const char*  friendly_name,
 	m_ModelURL = "http://www.altia.com";
 	m_ManufacturerURL = "http://www.altia.com";
 	m_DlnaDoc = "Altia Media Renderer";
-	//SetupServices();
-	//playVideo("C:\\Users\\liamm\\Development\\AltiaConnect\\AltiaConnect\\Debug\\Serenity.mp4");
+	playVideo("DIRECT_LINK");
+
 }
 /*----------------------------------------------------------------------
 |   PLT_MediaRenderer::OnGetCurrentConnectionInfo
@@ -109,6 +109,7 @@ HBITMAP ConvertIplImage2HBITMAP(IplImage* pImage)
 	}
 
 	hbmp = CreateDIBSection(NULL, bmi, DIB_RGB_COLORS, &dst_ptr, 0, 0);
+	
 	/**/
 		cvInitMatHeader(&dst, pImage->height, pImage->width, CV_8UC3,
 		dst_ptr, (pImage->width * pImage->nChannels + 3) & -4);
@@ -118,11 +119,17 @@ HBITMAP ConvertIplImage2HBITMAP(IplImage* pImage)
 		if (pImage->imageData!=NULL)
 		{
 			cvConvertImage(pImage, &dst, pImage->origin ? CV_CVTIMG_FLIP : 0);
+
+			DeleteObject(bmi);
+			DeleteObject(bmih);
+			//DeleteObject(hbmp);
+			DeleteObject(&dst);
+			DeleteObject(dst_ptr);
 		}
 	}
 	catch (...)
 	{
-		ALTIA_LOG_INFO("cvInitMat Header issue!!! %p", pImage->imageData);
+		ALTIA_LOG_INFO("cvInitMat Header issue! Probably a memory leak %p", pImage->imageData);
 	}
 
 	return hbmp;
@@ -170,55 +177,89 @@ HBITMAP AMediaRenderer::CreateBitmap2(int w, int h, WORD bpp, int nSize)
 	::DeleteDC(hDC);
 	return hBmp;
 }
+
+void grabFrames(VideoCapture *capture)
+{
+	
+	while (true)
+	{
+		capture->grab();
+	}
+	
+}
+
 void pMovie(void *param)
 {
 
 	Mat frame;
 	VideoCapture cap;
-	_videoURI = "http://192.168.80.230:8080/screen.mjpeg";
-	cap.open(_videoURI.c_str());
-	ALTIA_LOG_INFO("\n\nOpening %s\n\n",_videoURI.c_str());
+
+	//cap.set(CV_CAP_PROP_FOURCC, -1);
+	//grabFrames(&cap);
+	if (_videoURI == "DIRECT_LINK")
+	{
+		_videoURI = "http://"CLIENT_IP_ADDRESS":8080/screen.mjpeg";
+	}
+	if (_videoURI == "CAMERA_LINK")
+	{
+		cap.open(0);
+	}
+	else
+	{
+		cap.open(_videoURI.c_str());
+	}
+
+	//_beginthread(grabFrames(&cap), 0, NULL);
+	ALTIA_LOG_INFO("Opening Stream...");// %s\n\n", _videoURI.c_str());
 	HBITMAP frameBitmap = NULL;
+	
 	HWND _activeWindow = FindWindow(NULL, "model_AUTOLITE_v39_castdemo_01");
 	HDC hDC = GetDC(_activeWindow);
 	HDC frameDC = CreateCompatibleDC(hDC);
+	SetStretchBltMode(hDC, HALFTONE);
 
-	for (;;)
+	cap.grab();
+	cap >> frame; // get a new frame from source
+	IplImage img(frame);
+	
+	while (true)
 	{
-			cap.grab();
-			cap >> frame; // get a new frame from source
-			IplImage img(frame);
-			
+		cap.grab();
+		cap >> frame;
+		if (!frame.empty())
+		{
+			img = frame;
 			try
 			{
-				//frameBitmap = CreateBitmap(frame.cols, frame.rows, 1, frame.depth(), frame.data);
-				frameBitmap = ConvertIplImage2HBITMAP(&img);
+				frameBitmap = ConvertIplImage2HBITMAP(&img); 
+
 				SelectObject(frameDC, frameBitmap);
-				SetStretchBltMode(hDC, HALFTONE);
-				StretchBlt(hDC, 250, 0, 300, 500, frameDC, 0, 0, img.width, img.height, SRCCOPY);
-				//BitBlt(hDC, 0, 0, 600, 340, frameDC, 0, 0, SRCCOPY);
-				Sleep(ALTIA_FRAME_RATE);
-				
+				/* this reflects the offset/width/height of the cart. coord system located in the DSN */
+				/* img.height+20 is to crop the entire device screen into the demo screen */
+				//StretchBlt(hDC, 264, 0, 270, 480, frameDC, 0, 0, img.width, img.height+20, SRCCOPY);
+				//printf("size: %i x %i", img.width, img.height);
+				/* Our push frame function into the dll that will feed the altiaRedraw event */
+				PushFrame(img.imageData);
+				/* Need to delete this reference or else HUGE memory leak! */
+				DeleteObject(frameBitmap);
 			}
-			catch (...){ break; }
-		//}
-		if (waitKey(30) >= 0) break;
+			catch (...){}
+		}
 	}
 
 	SelectObject(frameDC, frameBitmap);
 	DeleteDC(frameDC);
+	DeleteDC(hDC);
 
 }
 void AMediaRenderer::playVideo(std::string videoURI)
 {
 	_videoURI = videoURI;
 	_beginthread(pMovie, 0, NULL);
-		
 }
 NPT_Result AMediaRenderer::OnSetAVTransportURI(PLT_ActionReference& action)
 {
-	ALTIA_LOG_INFO("FOUND ITS WAY HERE FINALLY");
-	return 0;
+	return NPT_SUCCESS;
 }
 NPT_Result AMediaRenderer::OnAction(PLT_ActionReference &action, const PLT_HttpRequestContext& context)
 {
@@ -229,13 +270,7 @@ NPT_Result AMediaRenderer::OnAction(PLT_ActionReference &action, const PLT_HttpR
 	if (name == "GetProtocolInfo")
 	{
 		NPT_String type = "";
-		//NPT_OutputStream *os;
-		//NPT_String serviceType = action->FormatSoapResponse(os);// ("GetProtocolInfo", type);
 		ALTIA_LOG_INFO("%s Action Received: %s = %s", context.GetRequest().GetMethod(), name, type);
-//		PLT_Action *action;
-		//action->FormatSoapRequest()
-		
-
 	}
 	// default implementation is using state variable
 	if (name == "SetAVTransportURI")
@@ -253,23 +288,20 @@ NPT_Result AMediaRenderer::OnAction(PLT_ActionReference &action, const PLT_HttpR
 		serviceAVT->SetStateVariable("AVTransportURI", uri);
 		serviceAVT->SetStateVariable("AVTransportURIMetaData", metadata);
 		ALTIA_LOG_INFO("\nURI : %s \nMeta Data: %s \n\nServiceAVT: %s\n", uri, metadata, serviceAVT->GetServiceType());
-		//playVideo("C:\\Users\\liamm\\Development\\AltiaConnect\\AltiaConnect\\Debug\\Serenity.mp4");
+
 		playVideo(uri.GetChars());
 
 	}
 	NPT_COMPILER_UNUSED(context);
 	// other actions rely on state variables
 	NPT_CHECK_LABEL_WARNING(action->SetArgumentsOutFromStateVariable(), failure);
+
 	return NPT_SUCCESS;
 
 failure:
 	action->SetError(401, "No Such Action.");
 	return NPT_FAILURE;
 
-
-
-
-	return 0;
 }
 /**/
 void AMediaRenderer::initMediaRenderer()

@@ -25,12 +25,12 @@ Altia*inputEditorFont:                  *-Arial Unicode MS-medium-r-normal--22-*
 ! GUI Settings
 !
 Altia*switchMode: Off
-Altia*showFocusOnly: True
+Altia*showFocusOnly: False
 Altia*selectionOptional: False
 Altia*grid_1: 1      1            pixel      pixels
 Altia*gridSnap: On
 Altia*scaleAffectsText: True
-Altia*ruleFile: Intel x86 Software Render Windows (v7.5.4)
+Altia*ruleFile: Intel x86 Software Render Windows (v8.0.0)
 Altia*fontMode: FreeType
 Altia*fontDepth: Alpha
 Altia*textShaping: False

@@ -17,8 +17,6 @@ AMulticastServer::~AMulticastServer()
 	upnp.Stop();
 }
 
-//NPT_CHECK(PLT_MediaRenderer::SetupServices());
-
 void AMulticastServer::initMCServer(std::string serverName, std::string guid)
 {
 

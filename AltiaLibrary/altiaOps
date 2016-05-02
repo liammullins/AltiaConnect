@@ -1,4 +1,4 @@
-C:\usr\AltiaDeepScreen\sw_renderwin32_800\ds_altiagl_win32\windib
+C:\usr\AltiaDeepScreen\sw_renderwin32_754\ds_altiagl_win32\windib
 genStimulus 1
 genControl 1
 genTimer 1
@@ -9,7 +9,7 @@ monotype 0
 shaping 0
 unicode 0
 externalImages 0
-dynamic 0
+dynamic 1
 showImageGUI 1
 closeImageGUI 1
 ignoreErrors 1
@@ -43,8 +43,9 @@ script C:\usr\AltiaDeepScreen\FreescaleIMX6Opengles2_706BETA\ds_opengles2_imx6\o
 script C:\usr\AltiaDeepScreen\X11Linux_100\ds_altiagl_x11_fb\altiagl_x11_fb C:\usr\AltiaDeepScreen\X11Linux_100\ds_altiagl_x11_fb\src\altmake_template.bat 
 script C:\usr\AltiaDeepScreen\sw_renderwin32_754\ds_altiagl_win32\windib C:\usr\AltiaDeepScreen\sw_renderwin32_754\ds_altiagl_win32\src\altmake_template.bat 
 script C:\usr\AltiaDeepScreen\sw_renderwin32_800\ds_altiagl_win32\windib C:\usr\AltiaDeepScreen\sw_renderwin32_800\ds_altiagl_win32\src\altmake_template.bat 
+script C:\usr\AltiaDeepScreen\AndroidOpengles2_711\ds_opengles2_android\opengles2_android C:\usr\AltiaDeepScreen\AndroidOpengles2_711\ds_opengles2_android\src\altmake_template.bat 
 extras C:\usr\AltiaDeepScreen\sw_renderwin32_800\ds_altiagl_win32\windib C:\usr\AltiaDeepScreen\sw_renderwin32_800\ds_altiagl_win32\src\windib_float.gen 
-extras C:\usr\AltiaDeepScreen\sw_renderwin32_754\ds_altiagl_win32\windib C:\usr\AltiaDeepScreen\sw_renderwin32_754\ds_altiagl_win32\src\windib_float.gen 
+extras C:\usr\AltiaDeepScreen\sw_renderwin32_754\ds_altiagl_win32\windib C:\usr\AltiaDeepScreen\sw_renderwin32_754\ds_altiagl_win32\src\windib_float_altia_cast.gen 
 extras C:\usr\AltiaDeepScreen\X11Linux_100\ds_altiagl_x11_fb\altiagl_x11_fb C:\usr\AltiaDeepScreen\X11Linux_100\ds_altiagl_x11_fb\src\gcc_float.gen 
 extras C:\usr\AltiaDeepScreen\sw_renderwin32_758\ds_altiagl_win32\windib C:\usr\AltiaDeepScreen\sw_renderwin32_758\ds_altiagl_win32\src\windib_float.gen 
 ####
