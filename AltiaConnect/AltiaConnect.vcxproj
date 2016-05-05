@@ -41,7 +41,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level2</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Users\liamm\Development\AltiaConnect\OpenCV\build\include;source;..\Platinum\Source\Platinum;..\Platinum\Source\Devices\MediaServer;..\Platinum\Source\Devices\MediaRenderer;..\Platinum\Source\Devices\MediaConnect;..\Platinum\Source\Extras;..\Platinum\Source\Core;..\Neptune\Source\Core;..\AltiaLibrary\altia\windows;..\AltiaLibrary\altia\altiaGL\windib;..\AltiaLibrary\altia\altiaGL\mi;..\AltiaLibrary\altia\altiaGL\libfloat;..\AltiaLibrary\altia\altiaGL\fb;..\AltiaLibrary\altia;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

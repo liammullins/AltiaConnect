@@ -211,45 +211,31 @@ void pMovie(void *param)
 
 	//_beginthread(grabFrames(&cap), 0, NULL);
 	ALTIA_LOG_INFO("Opening Stream...");// %s\n\n", _videoURI.c_str());
-	HBITMAP frameBitmap = NULL;
-	
-	HWND _activeWindow = FindWindow(NULL, "model_AUTOLITE_v39_castdemo_01");
-	HDC hDC = GetDC(_activeWindow);
-	HDC frameDC = CreateCompatibleDC(hDC);
-	SetStretchBltMode(hDC, HALFTONE);
-
 	cap.grab();
 	cap >> frame; // get a new frame from source
 	IplImage img(frame);
-	
+	IplImage *destination;
+	/*  */
 	while (true)
 	{
 		cap.grab();
 		cap >> frame;
+		/*  */
 		if (!frame.empty())
 		{
 			img = frame;
 			try
 			{
-				frameBitmap = ConvertIplImage2HBITMAP(&img); 
-
-				SelectObject(frameDC, frameBitmap);
-				/* this reflects the offset/width/height of the cart. coord system located in the DSN */
-				/* img.height+20 is to crop the entire device screen into the demo screen */
-				//StretchBlt(hDC, 264, 0, 270, 480, frameDC, 0, 0, img.width, img.height+20, SRCCOPY);
-				//printf("size: %i x %i", img.width, img.height);
-				/* Our push frame function into the dll that will feed the altiaRedraw event */
-				PushFrame(img.imageData);
-				/* Need to delete this reference or else HUGE memory leak! */
-				DeleteObject(frameBitmap);
+				/* This is where we resize our image through openCV */
+				destination = cvCreateImage (cvSize(292,480),img.depth,img.nChannels);
+				/* Use cvResize to resize source to a destination image */
+				cvResize(&img, destination);
+				/* Send our frame now to the Altia drawing process */
+				PushFrame(destination->imageData);
 			}
 			catch (...){}
 		}
 	}
-
-	SelectObject(frameDC, frameBitmap);
-	DeleteDC(frameDC);
-	DeleteDC(hDC);
 
 }
 void AMediaRenderer::playVideo(std::string videoURI)

@@ -1,0 +1,114 @@
+﻿Build started 4/2/2016 7:07:13 PM.
+     1>Project "C:\Users\liamm\Development\AltiaConnect\Platinum\Platinum.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\Neptune\Source\Core /ISource\Platinum /ISource\Core /ISource\Extras /ISource\Devices\MediaServer /ISource\Devices\MediaRenderer /ISource\Devices\MediaConnect /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _LIB /D NPT_CONFIG_ENABLE_LOGGING /D _CRT_SECURE_NO_DEPRECATE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"C:\Users\liamm\Development\AltiaConnect\AltiaConnect\Release\Platinum.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Core\PltAction.cpp Source\Core\PltArgument.cpp Source\Core\PltConstants.cpp Source\Core\PltCtrlPoint.cpp Source\Core\PltCtrlPointTask.cpp Source\Core\PltDatagramStream.cpp Source\Core\PltDeviceData.cpp Source\Core\PltDeviceHost.cpp Source\Core\PltEvent.cpp Source\Core\PltHttp.cpp Source\Core\PltHttpClientTask.cpp Source\Core\PltHttpServer.cpp Source\Core\PltHttpServerTask.cpp Source\Core\PltIconsData.cpp Source\Core\PltMimeType.cpp Source\Core\PltProtocolInfo.cpp Source\Core\PltService.cpp Source\Core\PltSsdp.cpp Source\Core\PltStateVariable.cpp Source\Core\PltTaskManager.cpp Source\Core\PltThreadTask.cpp Source\Core\PltUPnP.cpp Source\Devices\MediaServer\ConnectionManagerSCPD.cpp Source\Devices\MediaServer\ContentDirectorySCPD.cpp Source\Devices\MediaServer\ContentDirectorywSearchSCPD.cpp Source\Devices\MediaServer\PltDidl.cpp Source\Devices\MediaServer\PltFileMediaServer.cpp Source\Devices\MediaServer\PltMediaBrowser.cpp Source\Devices\MediaServer\PltMediaCache.cpp Source\Devices\MediaServer\PltMediaItem.cpp Source\Devices\MediaServer\PltMediaServer.cpp Source\Devices\MediaServer\PltSyncMediaBrowser.cpp Source\Devices\MediaRenderer\AVTransportSCPD.cpp Source\Devices\MediaRenderer\PltMediaController.cpp Source\Devices\MediaRenderer\PltMediaRenderer.cpp Source\Devices\MediaRenderer\RdrConnectionManagerSCPD.cpp Source\Devices\MediaRenderer\RenderingControlSCPD.cpp Source\Devices\MediaConnect\PltMediaConnect.cpp Source\Devices\MediaConnect\PltXbox360.cpp Source\Devices\MediaConnect\X_MS_MediaReceiverRegistrarSCPD.cpp Source\Extras\PltDownloader.cpp Source\Extras\PltFrameBuffer.cpp Source\Extras\PltFrameServer.cpp Source\Extras\PltFrameStream.cpp Source\Extras\PltLeaks.cpp Source\Extras\PltMetadataHandler.cpp Source\Extras\PltRingBufferStream.cpp Source\Extras\PltStreamPump.cpp
+         PltAction.cpp
+         PltArgument.cpp
+         PltConstants.cpp
+         PltCtrlPoint.cpp
+         PltCtrlPointTask.cpp
+         PltDatagramStream.cpp
+         PltDeviceData.cpp
+         PltDeviceHost.cpp
+     1>Source\Core\PltDeviceHost.cpp(683): warning C4244: 'initializing' : conversion from 'double' to 'NPT_Int32', possible loss of data
+     1>Source\Core\PltDeviceHost.cpp(706): warning C4244: 'initializing' : conversion from 'double' to 'NPT_Int32', possible loss of data
+         PltEvent.cpp
+         PltHttp.cpp
+         PltHttpClientTask.cpp
+         PltHttpServer.cpp
+         PltHttpServerTask.cpp
+         PltIconsData.cpp
+         PltMimeType.cpp
+         PltProtocolInfo.cpp
+         PltService.cpp
+         PltSsdp.cpp
+         PltStateVariable.cpp
+         PltTaskManager.cpp
+         Generating Code...
+         Compiling...
+         PltThreadTask.cpp
+         PltUPnP.cpp
+         ConnectionManagerSCPD.cpp
+         ContentDirectorySCPD.cpp
+         ContentDirectorywSearchSCPD.cpp
+         PltDidl.cpp
+         PltFileMediaServer.cpp
+         PltMediaBrowser.cpp
+         PltMediaCache.cpp
+         PltMediaItem.cpp
+         PltMediaServer.cpp
+         PltSyncMediaBrowser.cpp
+         AVTransportSCPD.cpp
+         PltMediaController.cpp
+         PltMediaRenderer.cpp
+         RdrConnectionManagerSCPD.cpp
+         RenderingControlSCPD.cpp
+         PltMediaConnect.cpp
+         PltXbox360.cpp
+         X_MS_MediaReceiverRegistrarSCPD.cpp
+         Generating Code...
+         Compiling...
+         PltDownloader.cpp
+         PltFrameBuffer.cpp
+         PltFrameServer.cpp
+         PltFrameStream.cpp
+         PltLeaks.cpp
+         PltMetadataHandler.cpp
+         PltRingBufferStream.cpp
+         PltStreamPump.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\liamm\Development\AltiaConnect\AltiaConnect\Release\Platinum.lib" /NOLOGO Release\PltAction.obj
+         Release\PltArgument.obj
+         Release\PltConstants.obj
+         Release\PltCtrlPoint.obj
+         Release\PltCtrlPointTask.obj
+         Release\PltDatagramStream.obj
+         Release\PltDeviceData.obj
+         Release\PltDeviceHost.obj
+         Release\PltEvent.obj
+         Release\PltHttp.obj
+         Release\PltHttpClientTask.obj
+         Release\PltHttpServer.obj
+         Release\PltHttpServerTask.obj
+         Release\PltIconsData.obj
+         Release\PltMimeType.obj
+         Release\PltProtocolInfo.obj
+         Release\PltService.obj
+         Release\PltSsdp.obj
+         Release\PltStateVariable.obj
+         Release\PltTaskManager.obj
+         Release\PltThreadTask.obj
+         Release\PltUPnP.obj
+         Release\ConnectionManagerSCPD.obj
+         Release\ContentDirectorySCPD.obj
+         Release\ContentDirectorywSearchSCPD.obj
+         Release\PltDidl.obj
+         Release\PltFileMediaServer.obj
+         Release\PltMediaBrowser.obj
+         Release\PltMediaCache.obj
+         Release\PltMediaItem.obj
+         Release\PltMediaServer.obj
+         Release\PltSyncMediaBrowser.obj
+         Release\AVTransportSCPD.obj
+         Release\PltMediaController.obj
+         Release\PltMediaRenderer.obj
+         Release\RdrConnectionManagerSCPD.obj
+         Release\RenderingControlSCPD.obj
+         Release\PltMediaConnect.obj
+         Release\PltXbox360.obj
+         Release\X_MS_MediaReceiverRegistrarSCPD.obj
+         Release\PltDownloader.obj
+         Release\PltFrameBuffer.obj
+         Release\PltFrameServer.obj
+         Release\PltFrameStream.obj
+         Release\PltLeaks.obj
+         Release\PltMetadataHandler.obj
+         Release\PltRingBufferStream.obj
+         Release\PltStreamPump.obj
+         Platinum.vcxproj -> C:\Users\liamm\Development\AltiaConnect\AltiaConnect\Release\Platinum.lib
+     1>Done Building Project "C:\Users\liamm\Development\AltiaConnect\Platinum\Platinum.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.50

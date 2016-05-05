@@ -1,0 +1,153 @@
+﻿Build started 5/4/2016 7:58:43 PM.
+     1>Project "C:\Users\liamm\Development\AltiaConnect\Neptune\Neptune.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(363,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ISource\Core /ISource\System\Win32 /IThirdParty\axTLS\config\Win32 /IThirdParty\axTLS\crypto /IThirdParty\axTLS\ssl /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D NPT_DEBUG /D NPT_CONFIG_ENABLE_LOGGING /D NPT_CONFIG_ENABLE_TLS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"inter\\" /Fd"lib\Neptune.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Core\NptAutomaticCleaner.cpp Source\Core\NptBase64.cpp Source\Core\NptHash.cpp Source\System\Bsd\NptBsdResolver.cpp Source\System\Bsd\NptBsdSockets.cpp Source\Core\NptBufferedStreams.cpp Source\Core\NptCommon.cpp Source\Core\NptConsole.cpp Source\Core\NptCrypto.cpp Source\Core\NptDataBuffer.cpp Source\Core\NptDebug.cpp Source\Core\NptDigest.cpp Source\Core\NptFile.cpp Source\Core\NptHttp.cpp Source\Core\NptList.cpp Source\Core\NptLogging.cpp Source\Core\NptMessaging.cpp Source\Core\NptNetwork.cpp Source\System\Posix\NptPosixFile.cpp Source\Core\NptQueue.cpp Source\Core\NptResults.cpp Source\Core\NptRingBuffer.cpp Source\Core\NptSimpleMessageQueue.cpp Source\Core\NptSockets.cpp Source\System\StdC\NptStdcEnvironment.cpp Source\System\StdC\NptStdcFile.cpp Source\Core\NptStreams.cpp Source\Core\NptStrings.cpp Source\Core\NptSystem.cpp Source\Core\NptThreads.cpp Source\Core\NptTime.cpp Source\Core\NptTls.cpp Source\Core\NptUri.cpp Source\Core\NptUtils.cpp Source\System\Win32\NptWin32Console.cpp Source\System\Win32\NptWin32Debug.cpp Source\System\Win32\NptWin32DynamicLibraries.cpp Source\System\Win32\NptWin32File.cpp Source\System\Win32\NptWin32MessageQueue.cpp Source\System\Win32\NptWin32Network.cpp Source\System\Win32\NptWin32Queue.cpp Source\System\Win32\NptWin32SerialPort.cpp Source\System\Win32\NptWin32System.cpp Source\System\Win32\NptWin32Threads.cpp Source\System\Win32\NptWin32Time.cpp Source\Core\NptXml.cpp Source\Data\TLS\NptTlsDefaultTrustAnchorsBase.cpp Source\Data\TLS\NptTlsDefaultTrustAnchorsExtended.cpp
+         NptTlsDefaultTrustAnchorsExtended.cpp
+         NptTlsDefaultTrustAnchorsBase.cpp
+         NptXml.cpp
+         NptWin32Time.cpp
+         NptWin32Threads.cpp
+         NptWin32System.cpp
+         NptWin32SerialPort.cpp
+         NptWin32Queue.cpp
+         NptWin32Network.cpp
+     1>Source\System\Win32\NptWin32Network.cpp(51): warning C4996: 'WSASocketA': Use WSASocketW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\um\winsock2.h(3457) : see declaration of 'WSASocketA'
+         NptWin32MessageQueue.cpp
+         NptWin32File.cpp
+         NptWin32DynamicLibraries.cpp
+         NptWin32Debug.cpp
+         NptWin32Console.cpp
+         NptUtils.cpp
+         NptUri.cpp
+         NptTls.cpp
+         NptTime.cpp
+         NptThreads.cpp
+         NptSystem.cpp
+         Generating Code...
+         Compiling...
+         NptStrings.cpp
+         NptStreams.cpp
+         NptStdcFile.cpp
+         NptStdcEnvironment.cpp
+         NptSockets.cpp
+         NptSimpleMessageQueue.cpp
+         NptRingBuffer.cpp
+         NptResults.cpp
+         NptQueue.cpp
+         NptPosixFile.cpp
+         NptNetwork.cpp
+         NptMessaging.cpp
+         NptLogging.cpp
+         NptList.cpp
+         NptHttp.cpp
+         NptFile.cpp
+         NptDigest.cpp
+         NptDebug.cpp
+         NptDataBuffer.cpp
+         NptCrypto.cpp
+         Generating Code...
+         Compiling...
+         NptConsole.cpp
+         NptCommon.cpp
+         NptBufferedStreams.cpp
+     1>Source\Core\NptBufferedStreams.cpp(417): warning C4244: '+=' : conversion from 'NPT_Position' to 'NPT_Size', possible loss of data
+         NptBsdSockets.cpp
+         NptBsdResolver.cpp
+         NptHash.cpp
+         NptBase64.cpp
+         NptAutomaticCleaner.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ISource\Core /ISource\System\Win32 /IThirdParty\axTLS\config\Win32 /IThirdParty\axTLS\crypto /IThirdParty\axTLS\ssl /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D NPT_DEBUG /D NPT_CONFIG_ENABLE_LOGGING /D NPT_CONFIG_ENABLE_TLS /Gm /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"inter\\" /Fd"lib\Neptune.pdb" /Gd /TC /analyze- /errorReport:prompt ThirdParty\axTLS\crypto\aes.c ThirdParty\axTLS\ssl\asn1.c ThirdParty\axTLS\crypto\bigint.c ThirdParty\axTLS\crypto\crypto_misc.c ThirdParty\axTLS\ssl\gen_cert.c ThirdParty\axTLS\crypto\hmac.c ThirdParty\axTLS\ssl\loader.c ThirdParty\axTLS\crypto\md2.c ThirdParty\axTLS\crypto\md5.c ThirdParty\axTLS\ssl\p12.c ThirdParty\axTLS\crypto\rc4.c ThirdParty\axTLS\crypto\rsa.c ThirdParty\axTLS\crypto\sha1.c ThirdParty\axTLS\ssl\tls1.c ThirdParty\axTLS\ssl\tls1_clnt.c ThirdParty\axTLS\ssl\tls1_svr.c ThirdParty\axTLS\ssl\x509.c
+         x509.c
+         tls1_svr.c
+         tls1_clnt.c
+         tls1.c
+         sha1.c
+         rsa.c
+         rc4.c
+         p12.c
+         md5.c
+         md2.c
+         loader.c
+         hmac.c
+         gen_cert.c
+         crypto_misc.c
+         bigint.c
+         asn1.c
+         aes.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"lib\Neptune.lib" ws2_32.lib /NOLOGO inter\NptAutomaticCleaner.obj
+         inter\NptBase64.obj
+         inter\NptHash.obj
+         inter\NptBsdResolver.obj
+         inter\NptBsdSockets.obj
+         inter\NptBufferedStreams.obj
+         inter\NptCommon.obj
+         inter\NptConsole.obj
+         inter\NptCrypto.obj
+         inter\NptDataBuffer.obj
+         inter\NptDebug.obj
+         inter\NptDigest.obj
+         inter\NptFile.obj
+         inter\NptHttp.obj
+         inter\NptList.obj
+         inter\NptLogging.obj
+         inter\NptMessaging.obj
+         inter\NptNetwork.obj
+         inter\NptPosixFile.obj
+         inter\NptQueue.obj
+         inter\NptResults.obj
+         inter\NptRingBuffer.obj
+         inter\NptSimpleMessageQueue.obj
+         inter\NptSockets.obj
+         inter\NptStdcEnvironment.obj
+         inter\NptStdcFile.obj
+         inter\NptStreams.obj
+         inter\NptStrings.obj
+         inter\NptSystem.obj
+         inter\NptThreads.obj
+         inter\NptTime.obj
+         inter\NptTls.obj
+         inter\NptUri.obj
+         inter\NptUtils.obj
+         inter\NptWin32Console.obj
+         inter\NptWin32Debug.obj
+         inter\NptWin32DynamicLibraries.obj
+         inter\NptWin32File.obj
+         inter\NptWin32MessageQueue.obj
+         inter\NptWin32Network.obj
+         inter\NptWin32Queue.obj
+         inter\NptWin32SerialPort.obj
+         inter\NptWin32System.obj
+         inter\NptWin32Threads.obj
+         inter\NptWin32Time.obj
+         inter\NptXml.obj
+         inter\aes.obj
+         inter\asn1.obj
+         inter\bigint.obj
+         inter\crypto_misc.obj
+         inter\gen_cert.obj
+         inter\hmac.obj
+         inter\loader.obj
+         inter\md2.obj
+         inter\md5.obj
+         inter\p12.obj
+         inter\rc4.obj
+         inter\rsa.obj
+         inter\sha1.obj
+         inter\tls1.obj
+         inter\tls1_clnt.obj
+         inter\tls1_svr.obj
+         inter\x509.obj
+         inter\NptTlsDefaultTrustAnchorsBase.obj
+         inter\NptTlsDefaultTrustAnchorsExtended.obj
+         Neptune.vcxproj -> C:\Users\liamm\Development\AltiaConnect\Neptune\lib\Neptune.lib
+     1>Done Building Project "C:\Users\liamm\Development\AltiaConnect\Neptune\Neptune.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:15.36

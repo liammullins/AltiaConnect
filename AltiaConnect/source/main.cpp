@@ -43,8 +43,24 @@ static unsigned long handRaster = 0;
 unsigned char *currentFrame = NULL;
 
 /*********************************************************************
-	Functions
+	Definitions
 *********************************************************************/
+typedef struct
+{
+	void *window;
+	int   objId;
+	int   x;
+	int   y;
+	int   width;
+	int   height;
+	int   showFlag;
+	unsigned long color;
+} ObjectStruct;
+#define MAXOBJS 32
+
+static ObjectStruct _objs[MAXOBJS];
+static int _objCnt = 0;
+
 static AltiaEx_Brush_type single = {
 	0, 0, 0xffff
 };
@@ -107,6 +123,10 @@ static int hand_bits[] = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x800000ff, 0x00, 0x00
 };
+
+/*********************************************************************
+Functions
+*********************************************************************/
 /*********************************************************************
 Save Bitmap to file function (pulled source)
 *********************************************************************/
@@ -162,103 +182,6 @@ void SaveBitmapToFile(HBITMAP hbm, LPCTSTR szFileName, BOOL bAutoDelete = FALSE)
 	}
 }
 */
-/*********************************************************************
-	This is the function that sync's altia design
-	drawing with our application
-*********************************************************************/
-AltiaEx_GraphicState_type gs;
-AltiaEx_Coord_type coords[16];
-AltiaEx_Rect_type rect;
-
-int DrawFrame(int objId, void *win, unsigned long mydc,
-			  int left, int bottom,
-			  int right, int top, int x, int y, int bxoff, int byoff,
-			  AltiaEx_Transform_type *trans)
-{
-	gs.foreground = 0xFFFFFF;
-	gs.background = 0xFFFFFF;
-	gs.pattern = solid;
-	gs.brush = single;
-	rect.x0 = 0;
-	rect.y0 = 0;
-	rect.x1 = 298 - 1;
-	rect.y1 = 480 - 1;
-	altiaExRectDraw(objId, win, mydc, &gs, &rect, 1, trans);
-	//ALTIA_LOG_INFO("Drew Rect? obj: %i",objId);
-	if (currentFrame != NULL)
-	{
-		handRaster = altiaExCreateRaster(298, 480, 24, (298*3), NULL, 0xffffff, 0xff, 0xff00, 0xff0000, 0xff000000, currentFrame, NULL);
-		if (handRaster != 0)
-		{
-			altiaExRasterDraw(objId, currentFrame, mydc, &gs, 298, 480, handRaster, trans);
-			ALTIA_LOG_INFO("Frame Drawn");
-		}
-		return 1;
-	}
-	return 0;
-}
-
-/*********************************************************************
-	Init process called within model
-*********************************************************************/
-extern "C"
-{
-	int initialize(int objId)
-	{
-
-
-		if (altiaExRegCallback(objId, ALT_REDRAW_CALLBACK,
-			(AltiaDACallBkFunc)DrawFrame) == 0)
-		{
-			ALTIA_LOG_INFO("Redraw setup failed : %s\n", altiaExGetErrorString());
-			return 0;
-		}
-
-		ALTIA_LOG_INFO("Everything Loaded! DAO Id: %i ",objId);
-		return 1;
-	}
-}
-/*********************************************************************
-Shared function that passes the current frame
-to the altia drawing process
-*********************************************************************/
-void PushFrame(char* frame)
-{
-	/* only update if the image is not NULL */
-	if (frame != NULL)
-	{
-		/* 
-		   I believe this could have some unintended consequences
-		*/
-		currentFrame = (unsigned char *)frame;
-		//altiaEx
-		//SaveBitmapToFile(frame, "liams_test.bmp", true);
-	}
-	else
-	{
-		ALTIA_LOG_INFO("Received Frame Error %s\n", altiaExGetErrorString());
-
-	}
-
-}
-
-
-void hmiProcess(void)
-{
-	int event_count, i;
-	AltiaCharType * event_name = NULL;
-	AltiaEventType event_value;
-	/* get our pending events*/
-	event_count = altiaPending();
-	/* run through our events and dispatch */
-	for (i = 0; i < event_count; i++)
-	{
-		altiaNextEvent((AltiaCharType **)(&event_name), &event_value);
-		AtDispatchEvent(connID, event_name, event_value);
-	}
-	xpos = -1;
-	ypos = -1;
-}
 
 /*********************************************************************
 	Receive data in multiple chunks by checking a non-blocking socket
@@ -294,7 +217,7 @@ int recv_timeout(int timeout)
 }
 /*********************************************************************
 	Receieve image stream test routine
-	*********************************************************************/
+*********************************************************************/
 void receiveImage(void *param)
 {
 
@@ -395,7 +318,7 @@ void receiveImage(void *param)
 
 /*********************************************************************
 	Get HINST, and then ProcAddress of PushFrame
-	*********************************************************************/
+*********************************************************************/
 HINSTANCE loadAltiaCastLibrary(/*std::string dllName*/)
 {
 
@@ -431,7 +354,7 @@ HINSTANCE loadAltiaCastLibrary(/*std::string dllName*/)
 
 /*********************************************************************
 	Callback for phone/radio click
-	*********************************************************************/
+*********************************************************************/
 void on_PhoneClicked(AtConnectId connectId, char *name,
 	AltiaEventType eventValue, AtPointer data)
 {
@@ -552,7 +475,137 @@ void initMainLogic(void)
 	}
 
 }
+/*********************************************************************
+Shared function that passes the current frame
+to the altia drawing process
+*********************************************************************/
+void PushFrame(char* frame)
+{
+	/* only update if the image is not NULL */
+	if (frame != NULL)
+	{
 
+
+		currentFrame = (unsigned char*)frame;
+		handRaster = altiaExCreateRaster(292, 480, 24, (292 * 3), NULL, 0, 0xff0000, 0xff00, 0xff, 0xff000000, currentFrame, NULL);
+		//altiaExUpdate(3007, 0,480, 292, 0);
+		//altiaFlushOutput();
+		//SaveBitmapToFile(frame, "liams_test.bmp", true);
+	}
+	else
+	{
+		ALTIA_LOG_INFO("Received Frame Error %s\n", altiaExGetErrorString());
+
+	}
+
+}
+/*********************************************************************
+This is the function that sync's altia design
+drawing with our application
+*********************************************************************/
+int DrawFrame(int objId, void *win, unsigned long mydc,
+	int left, int bottom,
+	int right, int top, int x, int y, int bxoff, int byoff,
+	AltiaEx_Transform_type *trans)
+{
+
+	AltiaEx_GraphicState_type gs;
+	AltiaEx_Coord_type coords[16];
+	AltiaEx_Rect_type rect;
+
+	gs.foreground = 0xFF;
+	gs.background = 0xFFFFFF;
+	gs.pattern = solid;
+	gs.brush = wide;
+	gs.alpha = 255;
+	gs.clip.x0 = left;
+	gs.clip.x1 = right;
+	gs.clip.y0 = bottom;
+	gs.clip.y1 = top;
+	/**/
+	rect.x0 = 0;
+	rect.y0 = 0;
+	rect.x1 = 150;
+	rect.y1 = 150;
+	//altiaExRectDraw(objId, win, mydc, &gs, &rect, 1, trans);
+	
+	//ALTIA_LOG_INFO("%i: Drew Rect?", objId);
+	if (currentFrame != NULL)
+	{
+		if (handRaster != 0)
+		{
+			altiaExRasterDraw(objId, win, mydc, &gs, 0, 0, handRaster, trans);
+			//ALTIA_LOG_INFO("Frame Drawn");
+		}
+		return 1;
+	}
+	return 0;
+}
+
+/*********************************************************************
+Init process called within model
+*********************************************************************/
+extern "C"
+{
+	int initialize(int objId)
+	{
+		if (altiaExRegCallback(objId, ALT_REDRAW_CALLBACK,
+			(AltiaDACallBkFunc)DrawFrame) == 0)
+		{
+			ALTIA_LOG_INFO("Redraw setup failed : %s\n", altiaExGetErrorString());
+			return 0;
+		}
+		/* Load struct with data so we can see what is being used */
+		if (altiaExGetInfo(objId, &_objs[_objCnt].window, &_objs[_objCnt].x,
+			&_objs[_objCnt].y, &_objs[_objCnt].width,
+			&_objs[_objCnt].height) == 0)
+		{
+			printf("GetInfo failed : %s\n", altiaExGetErrorString());
+			return 0;
+		}
+		/* set this here */
+		_objs[_objCnt].objId = objId;
+		ALTIA_LOG_INFO("Everything Loaded!");
+		ALTIA_LOG_INFO("\n================== Properties =====================");
+		ALTIA_LOG_INFO("DAO objId : %i", _objs[_objCnt].objId);
+		ALTIA_LOG_INFO("Width: %i ", _objs[_objCnt].width);
+		ALTIA_LOG_INFO("Height: %i ", _objs[_objCnt].height);
+		ALTIA_LOG_INFO("X: %i ", _objs[_objCnt].x);
+		ALTIA_LOG_INFO("Y: %i ", _objs[_objCnt].y);
+		ALTIA_LOG_INFO("Window: %i ", _objs[_objCnt].window);
+		ALTIA_LOG_INFO("ShowFlag: %i", _objs[_objCnt].showFlag);
+		ALTIA_LOG_INFO("\n===================================================\n");
+		
+		return 1;
+	}
+}
+
+/*********************************************************************
+	Stimulus processing and routing
+*********************************************************************/
+void hmiProcess(void)
+{
+	int event_count, i;
+	AltiaCharType * event_name = NULL;
+	AltiaEventType event_value;
+	/* get our pending events */
+	event_count = altiaPending();
+	/* run through our events and dispatch */
+	for (i = 0; i < event_count; i++)
+	{
+		altiaNextEvent((AltiaCharType **)(&event_name), &event_value);
+		AtDispatchEvent(connID, event_name, event_value);
+	}
+	/* try to force an update 
+	altiaExUpdate(3007, _objs[_objCnt].x,
+		_objs[_objCnt].height,
+		_objs[_objCnt].width,
+		_objs[_objCnt].y);*/
+	altiaFlushOutput();
+
+	xpos = -1;
+	ypos = -1;
+}
 /*********************************************************************
 	Main Entry and stimulus processing
 *********************************************************************/
